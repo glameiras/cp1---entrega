@@ -1,0 +1,23 @@
+[
+  {
+    "pergunta": "Quem propôs a World Wide Web em 1989, enquanto trabalhava no CERN?",
+    "alternativas": ["Alan Turing", "Tim Berners-Lee", "Grace Hopper", "Charles Babbage"],
+    "resposta": 1,
+    "explicacao": "Tim Berners-Lee propôs a World Wide Web em 1989 no CERN para facilitar o compartilhamento de informações. A Web é um sistema de páginas e links que funciona sobre a internet; os termos não são sinônimos.",
+    "fonte": "https://home.cern/science/computing/the-birth-of-the-web"
+  },
+  {
+    "pergunta": "Qual componente eletrônico era utilizado aos milhares no ENIAC, apresentado ao público em 1946?",
+    "alternativas": ["Microprocessadores de 64 bits", "Transistores de silício", "Válvulas eletrônicas", "Processadores quânticos"],
+    "resposta": 2,
+    "explicacao": "O ENIAC utilizava cerca de 18 mil válvulas eletrônicas. Seu tamanho e seu peso mostram como os computadores eletrônicos daquela época eram diferentes dos equipamentos pessoais atuais.",
+    "fonte": "https://www.computerhistory.org/timeline/1946/"
+  },
+  {
+    "pergunta": "Qual microprocessador foi apresentado pela Intel em 1971?",
+    "alternativas": ["Intel 4004", "Intel Pentium", "Intel Core i7", "Intel 8086"],
+    "resposta": 0,
+    "explicacao": "O Intel 4004 foi apresentado em 1971. Desenvolvido inicialmente para calculadoras da Busicom, ele processava dados em blocos de 4 bits e marcou a história dos microprocessadores comerciais.",
+    "fonte": "https://www.computerhistory.org/timeline/1971/"
+  }
+]
