@@ -73,7 +73,7 @@ Fontes consultadas em 22/10/2026. As explicações foram redigidas para este pro
 ## Integrantes e organização
 
 | Integrante | RGM | GitHub |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Gustavo Lameiras | 43905307 | @glameiras |
 | Pedro de Oliveira Rodrigues | 46925457 | @PedroRodrigues841 |
 | Rafael Yudi Tokunaga | 47018372 | @rafaelyudi498 |
@@ -85,3 +85,9 @@ Branches sugeridas: `feature/pagina-inicial`, `feature/tela-jogo`, `feature/esti
 
 - Link do repositório GitHub: https://github.com/glameiras/cp1---entrega.
 
+
+## Site publicado
+
+Acesse o [CronoTech no GitHub Pages](https://glameiras.github.io/cp1---entrega/).
+
+Publicação automática via GitHub Actions, a partir da pasta `dist` da branch `main`.
