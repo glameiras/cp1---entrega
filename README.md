@@ -72,26 +72,16 @@ Fontes consultadas em 22/10/2026. As explicações foram redigidas para este pro
 
 ## Integrantes e organização
 
-| Integrante | RGM | GitHub | Responsabilidade |
+| Integrante | RGM | GitHub 
 | --- | --- | --- | --- |
-| Gustavo Lameiras | 43905307 | @glameiras | A definir pelo grupo |
-| Pedro de Oliveira Rodrigues | 46925457 | @PedroRodrigues841 | A definir pelo grupo |
-| Rafael Yudi Tokunaga | 47018372 | @rafaelyudi498 | A definir pelo grupo |
-| Felipe Silva | 47218363 | @silva0076 | A definir pelo grupo |
+| Gustavo Lameiras | 43905307 | @glameiras 
+| Pedro de Oliveira Rodrigues | 46925457 | @PedroRodrigues841 
+| Rafael Yudi Tokunaga | 47018372 | @rafaelyudi498 
+| Felipe Silva | 47218363 | @silva0076 
 
 Os integrantes e RGMs foram informados pela equipe. A divisão de tarefas ainda deverá ser acordada pelo grupo. Cada integrante deverá contribuir com sua própria conta, em sua branch; não simular commits de colegas.
 
 Branches sugeridas: `feature/pagina-inicial`, `feature/tela-jogo`, `feature/estilo-base` e `feature/perguntas-json`. Revisar alterações antes de integrá-las à `main`.
 
-## Publicação e entrega
-
-O projeto está preparado para GitHub Pages via Actions. Configure o repositório para usar GitHub Actions em Settings → Pages; a workflow publica somente `dist`, sem os documentos de equipe.
-
-**Antes de entregar:** definir as responsabilidades da equipe, adicionar os colegas como colaboradores, realizar a revisão coletiva, publicar com HTTPS, criar e enviar a tag `cp1-entrega` e verificar os dois links em janela anônima.
-
 - Link do repositório GitHub: https://github.com/glameiras/cp1---entrega.
-- Link público do GitHub Pages: preencher após a publicação.
-- Data indicada nos prints: **27/10/2026 — Aula 11**.
-- Entrega no Blackboard: link do repositório com a tag e link do site publicado.
 
-O guia detalhado está em `docs/GUIA_DE_ENTREGA.md`. A publicação privada de demonstração não substitui um endereço acessível ao professor em janela anônima.
