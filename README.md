@@ -72,12 +72,12 @@ Fontes consultadas em 22/10/2026. As explicações foram redigidas para este pro
 
 ## Integrantes e organização
 
-| Integrante | RGM | GitHub 
+| Integrante | RGM | GitHub |
 | --- | --- | --- | --- |
-| Gustavo Lameiras | 43905307 | @glameiras 
-| Pedro de Oliveira Rodrigues | 46925457 | @PedroRodrigues841 
-| Rafael Yudi Tokunaga | 47018372 | @rafaelyudi498 
-| Felipe Silva | 47218363 | @silva0076 
+| Gustavo Lameiras | 43905307 | @glameiras |
+| Pedro de Oliveira Rodrigues | 46925457 | @PedroRodrigues841 |
+| Rafael Yudi Tokunaga | 47018372 | @rafaelyudi498 |
+| Felipe Silva | 47218363 | @silva0076 |
 
 Os integrantes e RGMs foram informados pela equipe. A divisão de tarefas ainda deverá ser acordada pelo grupo. Cada integrante deverá contribuir com sua própria conta, em sua branch; não simular commits de colegas.
 
