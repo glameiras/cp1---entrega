@@ -1,7 +1,63 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Protótipo da tela do quiz CronoTech sobre História da Tecnologia."><title>A jornada | CronoTech</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#conteudo">Pular para o conteúdo</a><header><div class="wrap nav"><a class="logo" href="index.html" aria-label="CronoTech — início"><span class="logo-icon" aria-hidden="true">&gt;_</span><span>Crono<em>Tech</em></span></a><nav aria-label="Navegação principal"><a href="index.html">Início</a><a href="jogo.html" aria-current="page">A jornada</a><a href="index.html#sobre">Sobre</a></nav><span class="edition">EDIÇÃO 01 / CP1</span></div></header>
-<main class="wrap game-main" id="conteudo"><a class="back" href="index.html">← Voltar ao início</a><div class="game-title"><div><p class="eyebrow">História da Tecnologia</p><h1>Uma pergunta. Uma descoberta.</h1></div></div><p class="prototype-note">Você está no protótipo visual do CP1. É possível selecionar uma alternativa; a correção, a pontuação e o avanço serão implementados no CP2.</p>
-<section class="quiz-card" aria-label="Questão modelo do quiz"><div class="question-meta"><span id="progresso-texto">Pergunta 1 de 3 · modelo</span><span>INTERNET E WEB</span></div><div class="progress" aria-hidden="true"><span></span></div>
-<!-- CP2: substituir este conteúdo pelos dados de perguntas.json; resposta usa índice iniciado em zero. -->
-<fieldset id="questao"><legend id="pergunta">Quem propôs a World Wide Web em 1989, enquanto trabalhava no CERN?</legend><div class="options" id="alternativas"><label class="option"><input type="radio" name="resposta" value="0"><span class="letter">A</span><span>Alan Turing</span></label><label class="option"><input type="radio" name="resposta" value="1"><span class="letter">B</span><span>Tim Berners-Lee</span></label><label class="option"><input type="radio" name="resposta" value="2"><span class="letter">C</span><span>Grace Hopper</span></label><label class="option"><input type="radio" name="resposta" value="3"><span class="letter">D</span><span>Charles Babbage</span></label></div></fieldset>
-<div class="feedback" id="feedback" role="status" aria-live="polite"><strong>Sua descoberta começa aqui.</strong><p>Este espaço apresentará o feedback da resposta no CP2. No protótipo, nenhuma resposta é corrigida.</p></div><div class="quiz-bottom"><p id="aviso-botao">Correção disponível na próxima etapa.</p><button class="button" id="confirmar" type="button" disabled aria-describedby="aviso-botao">Confirmar resposta <span aria-hidden="true">→</span></button></div></section>
-<details class="explanation"><summary>Ver exemplo de explicação e fonte</summary><div class="detail"><p><strong>Resposta do exemplo: Tim Berners-Lee.</strong> O cientista propôs a World Wide Web em 1989, no CERN, para facilitar o compartilhamento de informações. A Web é um sistema de páginas e links que funciona sobre a internet; os dois termos não são sinônimos.</p><a href="https://home.cern/science/computing/the-birth-of-the-web" target="_blank" rel="noopener noreferrer">Consultar a história da Web no CERN ↗</a><p class="small-note">Exemplo estático: esta explicação não depende da alternativa selecionada.</p></div></details><div class="next-stage"><span>Sem cronômetro. Aprenda no seu ritmo.</span><a href="index.html#explorar">Revisitar os marcos históricos →</a></div></main><footer><div class="wrap footer-inner"><p><strong>CronoTech</strong> — História da Tecnologia</p><p>Projeto acadêmico · CP1 · 2026</p><a href="index.html">Página inicial ↗</a></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Jogue o quiz CronoTech e aprenda sobre a história da tecnologia.">
+  <title>A jornada | CronoTech</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/jogo.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header><div class="wrap nav">
+  <a class="logo" href="index.html" aria-label="CronoTech — início"><span class="logo-icon" aria-hidden="true">&gt;_</span><span>Crono<em>Tech</em></span></a>
+  <nav aria-label="Navegação principal"><a href="index.html">Início</a><a href="jogo.html" aria-current="page">A jornada</a><a href="index.html#sobre">Sobre</a></nav>
+  <span class="edition">EDIÇÃO 02 / CP2</span>
+</div></header>
+<main class="wrap game-main" id="conteudo">
+  <a class="back" href="index.html">← Voltar ao início</a>
+  <div class="game-title"><div><p class="eyebrow">História da Tecnologia</p><h1>Uma pergunta. Uma descoberta.</h1></div></div>
+  <noscript><p>Ative o JavaScript para jogar este quiz.</p></noscript>
+  <section class="quiz-card" id="inicio" aria-labelledby="inicio-titulo">
+    <h2 id="inicio-titulo">Sua jornada começa aqui.</h2>
+    <p>Informe seu nome ou apelido. Cada acerto vale 1 ponto. Leia a explicação antes de seguir para a próxima pergunta.</p>
+    <form id="form-inicio">
+      <label for="nome">Nome do jogador</label>
+      <input id="nome" name="nome" type="text" required maxlength="40" autocomplete="nickname" aria-describedby="erro-nome">
+      <p id="erro-nome" role="alert"></p>
+      <button class="button" id="jogar" type="submit" disabled>Jogar</button>
+    </form>
+    <p id="carregamento" role="status">Carregando perguntas…</p>
+    <button class="button" id="tentar" type="button" hidden>Tentar novamente</button>
+    <p class="small-note">Use Tab para navegar, setas para escolher alternativas e Enter para ativar botões.</p>
+  </section>
+  <section class="quiz-card" id="jogo" aria-label="Quiz" hidden>
+    <div class="question-meta"><span id="progresso-texto"></span><span id="jogador"></span></div>
+    <div class="progress" aria-hidden="true"><span id="barra"></span></div>
+    <fieldset id="questao">
+      <legend id="pergunta" tabindex="-1"></legend>
+      <div class="options" id="alternativas"></div>
+    </fieldset>
+    <div class="feedback" id="feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+    <div class="quiz-bottom">
+      <p id="aviso-botao"></p>
+      <button class="button" id="confirmar" type="button">Confirmar resposta</button>
+      <button class="button" id="proxima" type="button" hidden>Próxima pergunta →</button>
+    </div>
+  </section>
+  <section class="quiz-card" id="resultado" aria-labelledby="fim-titulo" hidden>
+    <p class="eyebrow">Jornada concluída</p>
+    <h2 id="fim-titulo" tabindex="-1">Fim de jogo!</h2>
+    <p id="pontuacao-final" class="score"></p>
+    <h3>Ranking desta sessão</h3>
+    <p>Os resultados ficam nesta aba entre partidas. Em caso de empate, a partida mais antiga aparece primeiro.</p>
+    <ol id="ranking" class="ranking"></ol>
+    <p id="aviso-ranking" role="status"></p>
+    <button class="button" id="reiniciar" type="button">Jogar novamente</button>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><p><strong>CronoTech</strong> — História da Tecnologia</p><p>Projeto acadêmico · CP2 · 2026</p><a href="index.html">Página inicial ↗</a></div></footer>
+</body>
+</html>

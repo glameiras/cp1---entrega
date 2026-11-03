@@ -1,0 +1,26 @@
+name: Marcar entrega CP2
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  publicar-tag:
+    if: contains(github.event.head_commit.message, '[cp2-entrega]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar historico
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Criar tag cp2-entrega se ainda nao existir
+        shell: bash
+        run: |
+          if git ls-remote --exit-code --tags origin refs/tags/cp2-entrega >/dev/null 2>&1; then
+            echo "A tag ja existe; nao sera alterada."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a cp2-entrega -m "Entrega CP2: logica e interatividade do CronoTech"
+          git push origin refs/tags/cp2-entrega

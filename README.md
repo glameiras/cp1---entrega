@@ -1,93 +1,56 @@
-# CronoTech — História da Tecnologia
+# CronoTech — CP2: lógica e interatividade
 
-Projeto acadêmico do **CP1: estrutura e design de um quiz**, com o tema História da Tecnologia e recorte em história da computação e tecnologias digitais. A proposta é apresentar acontecimentos, invenções e pessoas que contribuíram para o mundo digital, contextualizando as respostas com fontes verificáveis.
+Projeto acadêmico de História da Tecnologia. Continuação do CP1, preservado pela tag `cp1-entrega`.
 
-**Etapa atual:** protótipo estático em HTML e CSS. A lógica de jogo pertence ao CP2 e não está implementada nesta entrega.
+O CP2 é um quiz feito em HTML, CSS e JavaScript puro. Carrega as três perguntas de `dist/perguntas.json` com `fetch`, apresenta uma questão por vez, confere a resposta, explica o gabarito com fonte, computa os pontos e cria um ranking da sessão em `sessionStorage`. É possível jogar novamente sem recarregar a página.
 
-## Público-alvo
+## Executar localmente
 
-Estudantes iniciantes de cursos de tecnologia e pessoas interessadas em conhecer a evolução da computação. A linguagem é introdutória e o acesso não exige cadastro.
+Abra esta pasta no VS Code e inicie o Live Server sobre `dist/index.html`. Alternativamente, use na raiz do projeto:
 
-## O que está implementado
-
-- Página inicial com nome, descrição do tema e chamada para iniciar.
-- Tela do quiz com pergunta modelo, quatro alternativas, indicador visual de progresso e área de feedback.
-- Seleção nativa de alternativas com botões de rádio; não há correção automática.
-- Exemplo estático de explicação e fonte em painel expansível.
-- Três questões em `dist/perguntas.json`, no contrato sugerido pelo professor.
-- HTML semântico, link para pular ao conteúdo, foco visível e layout responsivo.
-- CSS próprio, ilustração SVG original e ícone local, sem dependências externas.
-- Configuração de publicação via GitHub Actions/GitHub Pages.
-
-**Não implementado no CP1:** leitura dinâmica do JSON, comparação de respostas, avanço entre perguntas, pontuação, tela de resultado e persistência. O indicador “Pergunta 1 de 3” é uma representação fixa. O botão de confirmar permanece desativado e informa o motivo.
-
-## Tecnologias e identidade visual
-
-HTML5, CSS3, JSON e SVG. Não são usados frameworks, bibliotecas ou JavaScript de jogo.
-
-A identidade combina o estilo de um arquivo histórico com referências a terminais antigos. Cores: papel `#F3F1E9`, verde escuro `#132E32`, terracota `#B83F23` e verde claro `#D3E7B8`. Tipografia: Arial/Helvetica para texto e Courier New para datas e metadados. As fontes são locais ao sistema. Layout com Grid e Flexbox, adaptado por media queries.
-
-## Estrutura
-
-- `dist/index.html` — página inicial.
-- `dist/jogo.html` — estrutura visual do quiz.
-- `dist/perguntas.json` — três questões modelo.
-- `dist/assets/style.css` — estilos compartilhados.
-- `dist/assets/computador.svg` — ilustração original.
-- `dist/assets/favicon.svg` — ícone da aba.
-- `docs/GUIA_DE_ENTREGA.md` — execução, Git, publicação e pendências.
-- `docs/CONTRATO_CP2.md` — formato de dados e pontos de integração.
-- `.github/workflows/pages.yml` — publicação do diretório `dist`.
-- `.gitignore` — exclusões de arquivos locais e temporários.
-
-## Requisitos mínimos e execução
-
-Um navegador moderno e os arquivos do projeto extraídos. Não é necessário instalar pacotes.
-
-1. Baixe e extraia o ZIP.
-2. Abra `dist/index.html` no navegador.
-3. Use “Iniciar jornada” para abrir a tela do quiz.
-
-Opcionalmente, abra a pasta no VS Code e utilize a extensão Live Server sobre `dist/index.html`. Se tiver Python instalado, execute na pasta do projeto:
-
-```bash
+```sh
 python -m http.server 5500 --directory dist
 ```
 
-Acesse `http://localhost:5500`. No Windows, `py` pode substituir `python`. No CP2, use um servidor HTTP para o carregamento de JSON com `fetch`.
+Acesse http://localhost:5500. É necessário um servidor HTTP, pois `file://` não permite o carregamento do JSON com `fetch` em muitos navegadores.
 
-## Contrato do JSON
+## Funcionalidades
 
-O arquivo é um array. Cada objeto possui `pergunta` (texto), `alternativas` (array com quatro textos), `resposta` (índice inteiro de 0 a 3), `explicacao` (texto) e `fonte` (URL HTTPS).
+- Nome obrigatório, com validação de espaços e limite de 40 caracteres.
+- Leitura e validação do JSON externo; mensagem e nova tentativa em caso de falha.
+- Uma pergunta por vez, com alternativas acessíveis por teclado e foco visível.
+- Resposta confirmada apenas uma vez, com explicação e fonte.
+- Pontuação de 0 a 3, resultado final e ranking temporário da aba.
+- Novo jogo sem atualizar a página; nomes exibidos com segurança como texto.
+- Layout responsivo e publicação no GitHub Pages.
 
-**A resposta começa em zero:** 0 = A, 1 = B, 2 = C, 3 = D. A primeira questão do JSON corresponde ao exemplo fixo de `jogo.html`. Consulte `docs/CONTRATO_CP2.md` antes de desenvolver a lógica.
+## Arquivos principais
 
-## Fontes das questões
+- `dist/index.html`: apresentação do projeto.
+- `dist/jogo.html`: quiz, placar e ranking.
+- `dist/assets/jogo.js`: lógica e eventos.
+- `dist/assets/style.css`: estilos.
+- `dist/perguntas.json`: perguntas, respostas, explicações e fontes.
+- `docs/GUIA_DE_ESTUDO.md`: explicação para a apresentação.
+- `docs/ENTREGA.md`: checklist de publicação.
+- `docs/VALIDACAO.md`: testes realizados e limites de verificação.
 
-Fontes consultadas em 22/10/2026. As explicações foram redigidas para este projeto; a ilustração não é uma fotografia histórica.
-
-1. [CERN — The birth of the Web](https://home.cern/science/computing/the-birth-of-the-web): Tim Berners-Lee e a proposta da Web em 1989.
-2. [Computer History Museum — 1946](https://www.computerhistory.org/timeline/1946/): ENIAC e suas válvulas eletrônicas.
-3. [Computer History Museum — 1971](https://www.computerhistory.org/timeline/1971/): Intel 4004.
-
-## Integrantes e organização
+## Equipe
 
 | Integrante | RGM | GitHub |
 | --- | --- | --- |
-| Gustavo Lameiras | 43905307 | @glameiras |
-| Pedro de Oliveira Rodrigues | 46925457 | @PedroRodrigues841 |
-| Rafael Yudi Tokunaga | 47018372 | @rafaelyudi498 |
-| Felipe Silva | 47218363 | @silva0076 |
+| Gustavo Lameiras | 43905307 | glameiras |
+| Pedro de Oliveira Rodrigues | 46925457 | PedroRodrigues841 |
+| Rafael Yudi Tokunaga | 47018372 | rafaelyudi498 |
+| Felipe Silva | 47218363 | silva0076 |
 
-Os integrantes e RGMs foram informados pela equipe. A divisão de tarefas ainda deverá ser acordada pelo grupo. Cada integrante deverá contribuir com sua própria conta, em sua branch; não simular commits de colegas.
+Cada integrante deve fazer contribuições reais na própria conta. Nenhum commit de colega foi simulado.
 
-Branches sugeridas: `feature/pagina-inicial`, `feature/tela-jogo`, `feature/estilo-base` e `feature/perguntas-json`. Revisar alterações antes de integrá-las à `main`.
+## Entrega
 
-- Link do repositório GitHub: https://github.com/glameiras/cp1---entrega.
+- Repositório: https://github.com/glameiras/cp1---entrega
+- Site: https://glameiras.github.io/cp1---entrega/
+- Tag da etapa CP2: `cp2-entrega`
+- Prazo informado: 10/11/2026, valendo 0,8 ponto.
 
-
-## Site publicado
-
-Acesse o [CronoTech no GitHub Pages](https://glameiras.github.io/cp1---entrega/).
-
-Publicação automática via GitHub Actions, a partir da pasta `dist` da branch `main`.
+A publicação e a tag devem ser conferidas no GitHub antes da submissão à Blackboard. Testes de navegação em navegador real devem ser feitos pela equipe.
