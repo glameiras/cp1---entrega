@@ -1,20 +1,10 @@
-# Checklist de entrega do CP2
+# Entrega CP3 — CronoTech
 
-Prazo informado: **10/11/2026**. Projeto CronoTech, continuação do CP1.
+Prazo: **17/11/2026**. Apresentação presencial: Aula 13.
 
-## Verificações
+Enviar no Blackboard:
 
-- [ ] Conferir nome vazio e apenas espaços.
-- [ ] Jogar com acertos, erros e conferir a fonte da explicação.
-- [ ] Concluir as três perguntas e conferir o total de pontos.
-- [ ] Reiniciar sem recarregar; conferir ranking.
-- [ ] Conferir persistência do ranking ao recarregar a mesma aba.
-- [ ] Navegar com Tab, setas, Enter e Espaço.
-- [ ] Abrir no celular e em janela anônima.
-- [ ] Integrantes realizarem commits reais com suas próprias contas.
-- [ ] Conferir o deploy em https://glameiras.github.io/cp1---entrega/
-- [ ] Conferir a tag https://github.com/glameiras/cp1---entrega/tree/cp2-entrega
+- Repositório na versão entregue: https://github.com/glameiras/cp1---entrega/tree/cp3-entrega
+- Site: https://glameiras.github.io/cp1---entrega/
 
-## Blackboard
-
-Envie o link da tag e o endereço público HTTPS da aplicação. Verifique pessoalmente o quiz no navegador antes de enviar. A tag `cp1-entrega` preserva a etapa anterior.
+Estudar `APRESENTACAO_CP3.md`. Confirmar no README os papéis reais da equipe. Todos devem participar da apresentação. Os guias de CP1 e contrato de CP2 nesta pasta são registros históricos; o README principal descreve a entrega atual.

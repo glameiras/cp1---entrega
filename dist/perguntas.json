@@ -1,23 +1,122 @@
 [
   {
     "pergunta": "Quem propôs a World Wide Web em 1989, enquanto trabalhava no CERN?",
-    "alternativas": ["Alan Turing", "Tim Berners-Lee", "Grace Hopper", "Charles Babbage"],
+    "alternativas": [
+      "Alan Turing",
+      "Tim Berners-Lee",
+      "Grace Hopper",
+      "Charles Babbage"
+    ],
     "resposta": 1,
     "explicacao": "Tim Berners-Lee propôs a World Wide Web em 1989 no CERN para facilitar o compartilhamento de informações. A Web é um sistema de páginas e links que funciona sobre a internet; os termos não são sinônimos.",
     "fonte": "https://home.cern/science/computing/the-birth-of-the-web"
   },
   {
     "pergunta": "Qual componente eletrônico era utilizado aos milhares no ENIAC, apresentado ao público em 1946?",
-    "alternativas": ["Microprocessadores de 64 bits", "Transistores de silício", "Válvulas eletrônicas", "Processadores quânticos"],
+    "alternativas": [
+      "Microprocessadores de 64 bits",
+      "Transistores de silício",
+      "Válvulas eletrônicas",
+      "Processadores quânticos"
+    ],
     "resposta": 2,
     "explicacao": "O ENIAC utilizava cerca de 18 mil válvulas eletrônicas. Seu tamanho e seu peso mostram como os computadores eletrônicos daquela época eram diferentes dos equipamentos pessoais atuais.",
     "fonte": "https://www.computerhistory.org/timeline/1946/"
   },
   {
     "pergunta": "Qual microprocessador foi apresentado pela Intel em 1971?",
-    "alternativas": ["Intel 4004", "Intel Pentium", "Intel Core i7", "Intel 8086"],
+    "alternativas": [
+      "Intel 4004",
+      "Intel Pentium",
+      "Intel Core i7",
+      "Intel 8086"
+    ],
     "resposta": 0,
     "explicacao": "O Intel 4004 foi apresentado em 1971. Desenvolvido inicialmente para calculadoras da Busicom, ele processava dados em blocos de 4 bits e marcou a história dos microprocessadores comerciais.",
     "fonte": "https://www.computerhistory.org/timeline/1971/"
+  },
+  {
+    "pergunta": "Qual rede de computadores entrou em operação em 1969 e marcou a história das redes?",
+    "alternativas": [
+      "Bluetooth",
+      "ARPANET",
+      "Wi-Fi",
+      "5G"
+    ],
+    "resposta": 1,
+    "explicacao": "A ARPANET entrou em operação em 1969, conectando computadores de diferentes tipos. Foi um marco na evolução das redes de computadores.",
+    "fonte": "https://www.computerhistory.org/timeline/1969/"
+  },
+  {
+    "pergunta": "Qual sistema operacional foi desenvolvido por Ken Thompson e Dennis Ritchie nos Bell Labs?",
+    "alternativas": [
+      "Android",
+      "Windows 95",
+      "UNIX",
+      "iOS"
+    ],
+    "resposta": 2,
+    "explicacao": "O UNIX nasceu nos Bell Labs em 1969 e influenciou a organização de arquivos e o funcionamento de muitos sistemas posteriores.",
+    "fonte": "https://www.computerhistory.org/timeline/1969/"
+  },
+  {
+    "pergunta": "Em que ano a IBM apresentou o PC modelo 5150?",
+    "alternativas": [
+      "1981",
+      "1946",
+      "2001",
+      "1995"
+    ],
+    "resposta": 0,
+    "explicacao": "O IBM PC 5150 foi apresentado em 1981. Sua adoção impulsionou o mercado de computadores pessoais e de equipamentos compatíveis.",
+    "fonte": "https://www.computerhistory.org/timeline/1981/"
+  },
+  {
+    "pergunta": "Qual sistema da Microsoft acompanhou o início da trajetória do IBM PC?",
+    "alternativas": [
+      "macOS",
+      "Ubuntu",
+      "Android",
+      "MS-DOS"
+    ],
+    "resposta": 3,
+    "explicacao": "O MS-DOS fez parte da história do IBM PC e da parceria entre IBM e Microsoft. Sua interface era baseada em comandos de texto.",
+    "fonte": "https://www.computerhistory.org/timeline/1981/"
+  },
+  {
+    "pergunta": "Qual computador lançado pela Apple em 1984 ajudou a popularizar a interface gráfica com mouse?",
+    "alternativas": [
+      "ENIAC",
+      "Macintosh",
+      "IBM 5150",
+      "Intel 4004"
+    ],
+    "resposta": 1,
+    "explicacao": "O Macintosh combinava interface gráfica e mouse. Aplicativos como MacPaint e MacWrite demonstravam essa forma de interação.",
+    "fonte": "https://www.computerhistory.org/timeline/1984/"
+  },
+  {
+    "pergunta": "Quem lançou o núcleo Linux em 1991?",
+    "alternativas": [
+      "Bill Gates",
+      "Tim Berners-Lee",
+      "Linus Torvalds",
+      "Steve Jobs"
+    ],
+    "resposta": 2,
+    "explicacao": "Linus Torvalds lançou o núcleo Linux em 1991. Outros desenvolvedores passaram a colaborar com melhorias e suporte a dispositivos.",
+    "fonte": "https://www.computerhistory.org/timeline/1991/"
+  },
+  {
+    "pergunta": "Na sigla CD-ROM, o que significa ROM?",
+    "alternativas": [
+      "Read Only Memory",
+      "Random Online Machine",
+      "Remote Output Module",
+      "Rapid Optical Monitor"
+    ],
+    "resposta": 0,
+    "explicacao": "ROM significa Read Only Memory, ou memória somente de leitura. O CD-ROM ajudou a distribuir enciclopédias, jogos e outros conteúdos multimídia.",
+    "fonte": "https://www.computerhistory.org/timeline/1984/"
   }
 ]

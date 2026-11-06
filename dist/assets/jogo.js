@@ -9,7 +9,7 @@ let respondeu = false;
 let fase = "inicio";
 let ranking = [];
 let armazenamentoDisponivel = true;
-const CHAVE_RANKING = "cronotech.cp2.ranking";
+const CHAVE_RANKING = "cronotech.cp3.ranking";
 
 // Atalho para encontrar elementos pelo id no HTML.
 const elemento = (id) => document.getElementById(id);
@@ -33,7 +33,7 @@ async function carregarPerguntas() {
         const resposta = await fetch("./perguntas.json");
         if (!resposta.ok) throw new Error("Falha HTTP: " + resposta.status);
         const dados = await resposta.json();
-        if (!Array.isArray(dados) || dados.length === 0 || !dados.every(questaoValida)) {
+        if (!Array.isArray(dados) || dados.length < 10 || !dados.every(questaoValida)) {
             throw new Error("Formato inválido no perguntas.json");
         }
         perguntas = dados;
@@ -60,7 +60,7 @@ function questaoValida(q) {
 function iniciarJogo(evento) {
     evento.preventDefault(); // Evita que o formulário recarregue a página.
     if (fase !== "inicio" || perguntas.length === 0) return;
-    nomeJogador = elemento("nome").value.trim();
+    nomeJogador = elemento("nome").value.trim().slice(0, 40);
     if (!nomeJogador) {
         elemento("erro-nome").textContent = "Digite um nome ou apelido, sem deixar apenas espaços.";
         elemento("nome").focus();
@@ -190,3 +190,4 @@ function reiniciarJogo() {
     elemento("nome").select();
     // O ranking permanece; não usamos location.reload().
 }
+
