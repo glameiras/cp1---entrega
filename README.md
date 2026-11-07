@@ -5,7 +5,6 @@ Quiz educativo de **História da Tecnologia**, com foco em computação e tecnol
 - **Site:** https://glameiras.github.io/cp1---entrega/
 - **Repositório:** https://github.com/glameiras/cp1---entrega
 - **Versão final:** `cp3-entrega`. As tags `cp1-entrega` e `cp2-entrega` preservam as etapas anteriores.
-- **Entrega:** 17/11/2026; apresentação presencial na Aula 13.
 
 ## Regras e funcionamento
 
