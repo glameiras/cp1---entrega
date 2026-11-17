@@ -27,11 +27,7 @@ O ranking usa `sessionStorage`: fica na sessão da aba, inclusive após recarreg
 
 **Divisão proposta, a confirmar pelo grupo conforme a participação real.** Não representa autoria comprovada de código. Todos devem estudar o projeto inteiro e apresentar; cada pessoa registra suas próprias contribuições na própria conta.
 
-## Executar localmente (plano B da apresentação)
-
 No VS Code, abra a pasta do projeto e use **Open with Live Server** em `dist/index.html`.
-
-Abra http://localhost:8000. Não abra por `file://`: o navegador pode bloquear o `fetch` do JSON. Os arquivos visuais e o jogo são locais; os links de fontes exigem internet. Não há build nem bibliotecas de terceiros.
 
 ## Organização
 
