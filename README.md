@@ -46,11 +46,3 @@ HTML em pt-BR, títulos hierárquicos, regiões semânticas, link para pular ao 
 
 CSS adapta as colunas ao celular, permite quebra de nomes longos e respeita redução de movimento. A revisão e os testes efetivamente executados estão em `docs/VALIDACAO.md`; a conferência em dispositivos reais e com leitor de tela deve ser feita pelo grupo antes da aula.
 
-## Publicação e entrega
-
-O GitHub Actions publica o conteúdo de `dist` no Pages. A automação `cp3-tag.yml` cria a tag anotada somente no commit cuja mensagem inclui `[cp3-entrega]`, sem sobrescrever uma tag existente. Confira a execução do Pages e os links antes de enviar no Blackboard:
-
-- https://github.com/glameiras/cp1---entrega/tree/cp3-entrega
-- https://glameiras.github.io/cp1---entrega/
-
-A apresentação e o envio no Blackboard são realizados pelo grupo.
