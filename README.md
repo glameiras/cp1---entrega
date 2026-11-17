@@ -29,11 +29,7 @@ O ranking usa `sessionStorage`: fica na sessão da aba, inclusive após recarreg
 
 ## Executar localmente (plano B da apresentação)
 
-No VS Code, abra a pasta do projeto e use **Open with Live Server** em `dist/index.html`. Alternativamente, com Python instalado, execute na raiz:
-
-```bash
-python -m http.server 8000 --directory dist
-```
+No VS Code, abra a pasta do projeto e use **Open with Live Server** em `dist/index.html`.
 
 Abra http://localhost:8000. Não abra por `file://`: o navegador pode bloquear o `fetch` do JSON. Os arquivos visuais e o jogo são locais; os links de fontes exigem internet. Não há build nem bibliotecas de terceiros.
 
