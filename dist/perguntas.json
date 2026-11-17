@@ -1,122 +1,132 @@
 [
   {
-    "pergunta": "Quem propôs a World Wide Web em 1989, enquanto trabalhava no CERN?",
+    "pergunta": "Por que o ENIAC precisava de milhares de válvulas eletrônicas?",
     "alternativas": [
-      "Alan Turing",
-      "Tim Berners-Lee",
-      "Grace Hopper",
-      "Charles Babbage"
+      "Para armazenar arquivos mesmo sem energia.",
+      "Para processar sinais elétricos e realizar operações.",
+      "Para conectar-se à internet por rádio.",
+      "Para resfriar os circuitos do computador."
     ],
     "resposta": 1,
-    "explicacao": "Tim Berners-Lee propôs a World Wide Web em 1989 no CERN para facilitar o compartilhamento de informações. A Web é um sistema de páginas e links que funciona sobre a internet; os termos não são sinônimos.",
-    "fonte": "https://home.cern/science/computing/the-birth-of-the-web"
+    "explicacao": "As válvulas controlavam sinais elétricos e ajudavam a executar operações. Eram grandes, consumiam muita energia e geravam calor; os transistores permitiram construir circuitos menores.",
+    "fonteTitulo": "Wikipédia em português — ENIAC",
+    "fonte": "https://pt.wikipedia.org/wiki/ENIAC"
   },
   {
-    "pergunta": "Qual componente eletrônico era utilizado aos milhares no ENIAC, apresentado ao público em 1946?",
+    "pergunta": "Que função um transistor pode exercer em um circuito digital?",
     "alternativas": [
-      "Microprocessadores de 64 bits",
-      "Transistores de silício",
-      "Válvulas eletrônicas",
-      "Processadores quânticos"
-    ],
-    "resposta": 2,
-    "explicacao": "O ENIAC utilizava cerca de 18 mil válvulas eletrônicas. Seu tamanho e seu peso mostram como os computadores eletrônicos daquela época eram diferentes dos equipamentos pessoais atuais.",
-    "fonte": "https://www.computerhistory.org/timeline/1946/"
-  },
-  {
-    "pergunta": "Qual microprocessador foi apresentado pela Intel em 1971?",
-    "alternativas": [
-      "Intel 4004",
-      "Intel Pentium",
-      "Intel Core i7",
-      "Intel 8086"
+      "Agir como interruptor, controlando a passagem de corrente.",
+      "Guardar arquivos quando o aparelho é desligado.",
+      "Projetar imagens diretamente na tela.",
+      "Conectar o computador a uma rede sem fio."
     ],
     "resposta": 0,
-    "explicacao": "O Intel 4004 foi apresentado em 1971. Desenvolvido inicialmente para calculadoras da Busicom, ele processava dados em blocos de 4 bits e marcou a história dos microprocessadores comerciais.",
-    "fonte": "https://www.computerhistory.org/timeline/1971/"
+    "explicacao": "Transistores podem funcionar como interruptores eletrônicos muito rápidos. Em chips, circuitos com muitos transistores representam e processam dados usando estados binários, como 0 e 1.",
+    "fonteTitulo": "Brasil Escola — Transistor",
+    "fonte": "https://brasilescola.uol.com.br/fisica/transistor.htm"
   },
   {
-    "pergunta": "Qual rede de computadores entrou em operação em 1969 e marcou a história das redes?",
+    "pergunta": "O que tornou o Intel 4004, lançado em 1971, um marco da computação?",
     "alternativas": [
-      "Bluetooth",
-      "ARPANET",
-      "Wi-Fi",
-      "5G"
+      "Foi o primeiro computador pessoal com mouse.",
+      "Reuniu a unidade central de processamento em um único chip.",
+      "Conectou computadores pela primeira vez à World Wide Web.",
+      "Substituiu a memória RAM por armazenamento em nuvem."
     ],
     "resposta": 1,
-    "explicacao": "A ARPANET entrou em operação em 1969, conectando computadores de diferentes tipos. Foi um marco na evolução das redes de computadores.",
-    "fonte": "https://www.computerhistory.org/timeline/1969/"
+    "explicacao": "O Intel 4004 foi um dos primeiros microprocessadores comerciais em um único chip. Integrar a CPU em um componente pequeno ajudou a criar equipamentos eletrônicos mais compactos.",
+    "fonteTitulo": "Wikipédia em português — Intel 4004",
+    "fonte": "https://pt.wikipedia.org/wiki/Intel_4004"
   },
   {
-    "pergunta": "Qual sistema operacional foi desenvolvido por Ken Thompson e Dennis Ritchie nos Bell Labs?",
+    "pergunta": "Qual é a função principal de um sistema operacional?",
     "alternativas": [
-      "Android",
-      "Windows 95",
-      "UNIX",
-      "iOS"
-    ],
-    "resposta": 2,
-    "explicacao": "O UNIX nasceu nos Bell Labs em 1969 e influenciou a organização de arquivos e o funcionamento de muitos sistemas posteriores.",
-    "fonte": "https://www.computerhistory.org/timeline/1969/"
-  },
-  {
-    "pergunta": "Em que ano a IBM apresentou o PC modelo 5150?",
-    "alternativas": [
-      "1981",
-      "1946",
-      "2001",
-      "1995"
-    ],
-    "resposta": 0,
-    "explicacao": "O IBM PC 5150 foi apresentado em 1981. Sua adoção impulsionou o mercado de computadores pessoais e de equipamentos compatíveis.",
-    "fonte": "https://www.computerhistory.org/timeline/1981/"
-  },
-  {
-    "pergunta": "Qual sistema da Microsoft acompanhou o início da trajetória do IBM PC?",
-    "alternativas": [
-      "macOS",
-      "Ubuntu",
-      "Android",
-      "MS-DOS"
-    ],
-    "resposta": 3,
-    "explicacao": "O MS-DOS fez parte da história do IBM PC e da parceria entre IBM e Microsoft. Sua interface era baseada em comandos de texto.",
-    "fonte": "https://www.computerhistory.org/timeline/1981/"
-  },
-  {
-    "pergunta": "Qual computador lançado pela Apple em 1984 ajudou a popularizar a interface gráfica com mouse?",
-    "alternativas": [
-      "ENIAC",
-      "Macintosh",
-      "IBM 5150",
-      "Intel 4004"
+      "Criar automaticamente todos os programas do computador.",
+      "Gerenciar o hardware e permitir que programas usem os recursos do aparelho.",
+      "Aumentar a velocidade da conexão com a internet.",
+      "Substituir o processador e a memória do computador."
     ],
     "resposta": 1,
-    "explicacao": "O Macintosh combinava interface gráfica e mouse. Aplicativos como MacPaint e MacWrite demonstravam essa forma de interação.",
-    "fonte": "https://www.computerhistory.org/timeline/1984/"
+    "explicacao": "O sistema operacional coordena recursos como processador, memória e dispositivos. Ele também oferece serviços para que aplicativos possam funcionar sem controlar cada componente diretamente.",
+    "fonteTitulo": "Tecnoblog — O que é um sistema operacional?",
+    "fonte": "https://tecnoblog.net/responde/o-que-e-um-sistema-operacional/"
   },
   {
-    "pergunta": "Quem lançou o núcleo Linux em 1991?",
+    "pergunta": "Por que reescrever o UNIX usando a linguagem C foi importante?",
     "alternativas": [
-      "Bill Gates",
-      "Tim Berners-Lee",
-      "Linus Torvalds",
-      "Steve Jobs"
-    ],
-    "resposta": 2,
-    "explicacao": "Linus Torvalds lançou o núcleo Linux em 1991. Outros desenvolvedores passaram a colaborar com melhorias e suporte a dispositivos.",
-    "fonte": "https://www.computerhistory.org/timeline/1991/"
-  },
-  {
-    "pergunta": "Na sigla CD-ROM, o que significa ROM?",
-    "alternativas": [
-      "Read Only Memory",
-      "Random Online Machine",
-      "Remote Output Module",
-      "Rapid Optical Monitor"
+      "Facilitou adaptar o sistema a diferentes computadores.",
+      "Transformou o UNIX em um navegador de internet.",
+      "Fez o sistema funcionar sem qualquer tipo de processador.",
+      "Converteu todos os arquivos do computador em imagens."
     ],
     "resposta": 0,
-    "explicacao": "ROM significa Read Only Memory, ou memória somente de leitura. O CD-ROM ajudou a distribuir enciclopédias, jogos e outros conteúdos multimídia.",
-    "fonte": "https://www.computerhistory.org/timeline/1984/"
+    "explicacao": "Em 1973, partes centrais do UNIX foram reescritas em C. Como C não era limitada a um único modelo de processador, essa escolha facilitou levar o sistema a outras máquinas.",
+    "fonteTitulo": "Wikipédia em português — UNIX",
+    "fonte": "https://pt.wikipedia.org/wiki/UNIX"
+  },
+  {
+    "pergunta": "Como a comutação de pacotes ajudava a ARPANET a transportar dados?",
+    "alternativas": [
+      "Dividia os dados em partes que podiam seguir pela rede e ser reunidas no destino.",
+      "Exigia uma conexão física direta entre cada par de computadores.",
+      "Transformava todos os dados em chamadas telefônicas analógicas.",
+      "Armazenava uma cópia completa de cada computador em um servidor central."
+    ],
+    "resposta": 0,
+    "explicacao": "Na comutação de pacotes, uma mensagem é dividida em blocos menores enviados pela rede. Esse princípio ajudou redes como a ARPANET a conectar centros de pesquisa e influenciou a evolução da internet.",
+    "fonteTitulo": "IME-USP — A ARPANET",
+    "fonte": "https://www.ime.usp.br/~is/abc/abc/node20.html"
+  },
+  {
+    "pergunta": "Qual alternativa explica a diferença entre internet e World Wide Web?",
+    "alternativas": [
+      "São dois nomes para a mesma tecnologia.",
+      "A internet conecta redes; a Web é um serviço de páginas e links que funciona nela.",
+      "A Web conecta computadores; a internet é um tipo de navegador.",
+      "A internet funciona apenas em computadores; a Web, apenas em celulares."
+    ],
+    "resposta": 1,
+    "explicacao": "A internet é uma infraestrutura que conecta redes e dispositivos. A World Wide Web é um dos serviços que usam essa infraestrutura para acessar páginas e documentos ligados por links.",
+    "fonteTitulo": "Wikipédia em português — Internet",
+    "fonte": "https://pt.wikipedia.org/wiki/Internet"
+  },
+  {
+    "pergunta": "O que tornou a interface do Macintosh de 1984 mais visual para quem usava um computador?",
+    "alternativas": [
+      "Janelas, ícones e interação com mouse.",
+      "Comandos falados sem tela ou teclado.",
+      "Acesso direto a páginas da World Wide Web.",
+      "Uma tela sensível ao toque colorida."
+    ],
+    "resposta": 0,
+    "explicacao": "O Macintosh popularizou uma forma visual de interagir com o computador, usando janelas, ícones e mouse. Ele não foi o primeiro computador com interface gráfica, mas ajudou a torná-la conhecida por mais pessoas.",
+    "fonteTitulo": "Estadão/TecMundo — A história do Macintosh",
+    "fonte": "https://www.estadao.com.br/tecmundo/big-techs/140537-historia-macintosh-1984-dias-video/"
+  },
+  {
+    "pergunta": "Em uma distribuição Linux, qual é o papel do kernel Linux?",
+    "alternativas": [
+      "Gerenciar o hardware e os recursos do computador.",
+      "Editar textos, sem interagir com outros programas.",
+      "Armazenar arquivos mesmo quando o computador desliga.",
+      "Substituir todos os aplicativos de uma distribuição."
+    ],
+    "resposta": 0,
+    "explicacao": "O kernel Linux gerencia recursos do computador. Uma distribuição combina esse núcleo com ferramentas e aplicativos; no uso cotidiano, muitas pessoas chamam o conjunto todo de Linux.",
+    "fonteTitulo": "Tecnoblog — O que é Linux?",
+    "fonte": "https://tecnoblog.net/responde/o-que-e-linux-entenda-a-importancia-dos-sistemas-operacionais-de-codigo-aberto/"
+  },
+  {
+    "pergunta": "O que acontece com os dados guardados na memória RAM quando o computador perde energia?",
+    "alternativas": [
+      "São enviados automaticamente para a memória ROM.",
+      "São apagados, pois a RAM é uma memória temporária e volátil.",
+      "São gravados permanentemente no processador.",
+      "São publicados na internet para recuperação posterior."
+    ],
+    "resposta": 1,
+    "explicacao": "A RAM guarda temporariamente os dados que programas estão usando e perde seu conteúdo sem energia. A ROM é não volátil e costuma guardar instruções essenciais do dispositivo.",
+    "fonteTitulo": "Tecnoblog — O que é memória ROM?",
+    "fonte": "https://tecnoblog.net/responde/o-que-e-memoria-rom/"
   }
 ]

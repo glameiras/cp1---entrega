@@ -1,193 +1,214 @@
 "use strict";
 
-// Estado da partida: variáveis que mudam enquanto a pessoa joga.
+const CHAVE_RANKING = "cronotech.cp3.ranking";
+const $ = id => document.getElementById(id);
+
 let perguntas = [];
 let perguntaAtual = 0;
 let pontuacao = 0;
 let nomeJogador = "";
 let respondeu = false;
-let fase = "inicio";
 let ranking = [];
 let armazenamentoDisponivel = true;
-const CHAVE_RANKING = "cronotech.cp3.ranking";
 
-// Atalho para encontrar elementos pelo id no HTML.
-const elemento = (id) => document.getElementById(id);
-
-// Eventos são registrados uma única vez, inclusive ao reiniciar.
-elemento("form-inicio").addEventListener("submit", iniciarJogo);
-elemento("confirmar").addEventListener("click", verificarResposta);
-elemento("proxima").addEventListener("click", avancarPergunta);
-elemento("reiniciar").addEventListener("click", reiniciarJogo);
-elemento("tentar").addEventListener("click", carregarPerguntas);
+$("form-inicio").addEventListener("submit", iniciarJogo);
+$("confirmar").addEventListener("click", verificarResposta);
+$("proxima").addEventListener("click", avancarPergunta);
+$("reiniciar").addEventListener("click", reiniciarJogo);
+$("tentar").addEventListener("click", carregarPerguntas);
 
 lerRanking();
+mostrarRanking();
 carregarPerguntas();
 
-// Busca as questões no arquivo externo; não há perguntas fixas neste script.
 async function carregarPerguntas() {
-    elemento("jogar").disabled = true;
-    elemento("tentar").hidden = true;
-    elemento("carregamento").textContent = "Carregando perguntas…";
+    $("jogar").disabled = true;
+    $("tentar").hidden = true;
+    $("carregamento").textContent = "Carregando perguntas…";
+
     try {
-        const resposta = await fetch("./perguntas.json");
-        if (!resposta.ok) throw new Error("Falha HTTP: " + resposta.status);
-        const dados = await resposta.json();
-        if (!Array.isArray(dados) || dados.length < 10 || !dados.every(questaoValida)) {
-            throw new Error("Formato inválido no perguntas.json");
+        const response = await fetch("./perguntas.json");
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const dados = await response.json();
+        if (!Array.isArray(dados) || dados.length === 0 || !dados.every(questaoValida)) {
+            throw new Error("O arquivo perguntas.json tem um formato inválido.");
         }
+
         perguntas = dados;
-        elemento("carregamento").textContent = `${perguntas.length} perguntas prontas. Boa jornada!`;
-        elemento("jogar").disabled = false;
-    } catch (erro) {
-        console.error(erro);
-        elemento("carregamento").textContent = "Não foi possível carregar as perguntas. Abra pelo Live Server ou pelo site publicado e tente novamente.";
-        elemento("tentar").hidden = false;
+        $("carregamento").textContent = `${perguntas.length} perguntas prontas. Boa jornada!`;
+        $("jogar").disabled = false;
+    } catch (error) {
+        console.error("Não foi possível carregar as perguntas:", error);
+        $("carregamento").textContent = "Não foi possível carregar as perguntas. Abra index.html com Live Server e tente novamente.";
+        $("tentar").hidden = false;
     }
 }
 
-// Valida o contrato do JSON, incluindo índice de resposta e URL da fonte.
-function questaoValida(q) {
-    if (!q || typeof q.pergunta !== "string" || !q.pergunta.trim() ||
-        !Array.isArray(q.alternativas) || q.alternativas.length !== 4 ||
-        !q.alternativas.every(a => typeof a === "string" && a.trim()) ||
-        !Number.isInteger(q.resposta) || q.resposta < 0 || q.resposta > 3 ||
-        typeof q.explicacao !== "string" || !q.explicacao.trim()) return false;
-    try { return new URL(q.fonte).protocol === "https:"; }
-    catch { return false; }
+function questaoValida(questao) {
+    return questao &&
+        typeof questao.pergunta === "string" &&
+        Array.isArray(questao.alternativas) &&
+        questao.alternativas.length === 4 &&
+        questao.alternativas.every(alternativa => typeof alternativa === "string") &&
+        Number.isInteger(questao.resposta) &&
+        questao.resposta >= 0 && questao.resposta < 4 &&
+        typeof questao.explicacao === "string" &&
+        typeof questao.fonteTitulo === "string" &&
+        typeof questao.fonte === "string" &&
+        questao.fonte.startsWith("https://");
 }
 
 function iniciarJogo(evento) {
-    evento.preventDefault(); // Evita que o formulário recarregue a página.
-    if (fase !== "inicio" || perguntas.length === 0) return;
-    nomeJogador = elemento("nome").value.trim().slice(0, 40);
-    if (!nomeJogador) {
-        elemento("erro-nome").textContent = "Digite um nome ou apelido, sem deixar apenas espaços.";
-        elemento("nome").focus();
+    evento.preventDefault();
+    if ($("inicio").hidden || !$("jogo").hidden) return;
+    nomeJogador = $("nome").value.trim();
+    if (!nomeJogador || !perguntas.length) {
+        $("erro-nome").textContent = nomeJogador ? "" : "Digite seu nome para começar.";
         return;
     }
-    elemento("erro-nome").textContent = "";
+
+    nomeJogador = nomeJogador.slice(0, 40);
     perguntaAtual = 0;
     pontuacao = 0;
-    fase = "jogo";
-    elemento("inicio").hidden = true;
-    elemento("jogo").hidden = false;
-    elemento("jogador").textContent = nomeJogador;
+    $("erro-nome").textContent = "";
+    $("inicio").hidden = true;
+    $("resultado").hidden = true;
+    $("jogo").hidden = false;
+    $("jogador").textContent = nomeJogador;
     mostrarPergunta();
 }
 
 function mostrarPergunta() {
     const questao = perguntas[perguntaAtual];
     respondeu = false;
-    elemento("pergunta").textContent = questao.pergunta;
-    elemento("progresso-texto").textContent = `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
-    elemento("barra").style.width = `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
-    elemento("alternativas").replaceChildren();
-    questao.alternativas.forEach(function (texto, indice) {
+    $("pergunta").textContent = questao.pergunta;
+    $("progresso-texto").textContent = `Pergunta ${perguntaAtual + 1} de ${perguntas.length}`;
+    $("barra").style.width = `${((perguntaAtual + 1) / perguntas.length) * 100}%`;
+    $("alternativas").replaceChildren();
+
+    questao.alternativas.forEach((alternativa, indice) => {
         const rotulo = document.createElement("label");
         rotulo.className = "option";
-        const input = document.createElement("input");
-        input.type = "radio";
-        input.name = "resposta";
-        input.value = indice;
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "resposta";
+        radio.value = indice;
         const letra = document.createElement("span");
         letra.className = "letter";
         letra.textContent = String.fromCharCode(65 + indice);
-        const descricao = document.createElement("span");
-        descricao.textContent = texto;
-        rotulo.append(input, letra, descricao);
-        elemento("alternativas").append(rotulo);
+        const texto = document.createElement("span");
+        texto.textContent = alternativa;
+        rotulo.append(radio, letra, texto);
+        $("alternativas").append(rotulo);
     });
-    elemento("feedback").textContent = "Selecione uma alternativa e confirme.";
-    elemento("aviso-botao").textContent = `Pontos: ${pontuacao}`;
-    elemento("confirmar").hidden = false;
-    elemento("proxima").hidden = true;
-    elemento("pergunta").focus();
+
+    $("feedback").className = "feedback";
+    $("feedback").textContent = "Selecione uma alternativa e confirme.";
+    $("aviso-botao").textContent = `Pontos: ${pontuacao}`;
+    $("confirmar").hidden = false;
+    $("proxima").hidden = true;
+    $("pergunta").focus();
 }
 
 function verificarResposta() {
-    if (fase !== "jogo" || respondeu) return;
+    if ($("jogo").hidden || respondeu) return;
     const selecionada = document.querySelector('input[name="resposta"]:checked');
     if (!selecionada) {
-        elemento("feedback").textContent = "Selecione uma alternativa antes de confirmar.";
-        document.querySelector('input[name="resposta"]').focus();
+        $("feedback").textContent = "Selecione uma alternativa antes de confirmar.";
         return;
     }
-    respondeu = true; // Impede contar pontos mais de uma vez na mesma questão.
+
+    respondeu = true;
     const questao = perguntas[perguntaAtual];
-    const acertou = Number(selecionada.value) === questao.resposta;
-    if (acertou) pontuacao++;
+    const correta = Number(selecionada.value) === questao.resposta;
+    if (correta) pontuacao++;
+
+    document.querySelectorAll('input[name="resposta"]').forEach(radio => {
+        const alternativa = radio.closest(".option");
+        if (Number(radio.value) === questao.resposta) alternativa.classList.add("option--correct");
+        else if (radio === selecionada) alternativa.classList.add("option--incorrect");
+        radio.disabled = true;
+    });
+
+    $("feedback").className = `feedback ${correta ? "feedback--correct" : "feedback--incorrect"}`;
     const mensagem = document.createElement("strong");
-    mensagem.textContent = acertou ? "✓ Resposta correta! +1 ponto." :
-        `✗ Resposta incorreta. A correta é ${String.fromCharCode(65 + questao.resposta)}: ${questao.alternativas[questao.resposta]}.`;
+    mensagem.textContent = correta
+        ? "✓ Resposta correta! +1 ponto."
+        : `✗ Resposta incorreta. A correta é ${String.fromCharCode(65 + questao.resposta)}: ${questao.alternativas[questao.resposta]}`;
     const explicacao = document.createElement("p");
     explicacao.textContent = questao.explicacao;
     const fonte = document.createElement("a");
     fonte.href = questao.fonte;
-    fonte.textContent = "Consultar fonte (abre em nova aba) ↗";
     fonte.target = "_blank";
     fonte.rel = "noopener noreferrer";
-    elemento("feedback").replaceChildren(mensagem, explicacao, fonte);
-    document.querySelectorAll('input[name="resposta"]').forEach(input => { input.disabled = true; });
-    elemento("aviso-botao").textContent = `Pontos: ${pontuacao}`;
-    elemento("confirmar").hidden = true;
-    elemento("proxima").hidden = false;
-    elemento("proxima").textContent = perguntaAtual === perguntas.length - 1 ? "Ver resultado →" : "Próxima pergunta →";
-    fonte.focus();
+    fonte.textContent = `Ler: ${questao.fonteTitulo} ↗`;
+    $("feedback").replaceChildren(mensagem, explicacao, fonte);
+
+    $("aviso-botao").textContent = `Pontos: ${pontuacao}`;
+    $("confirmar").hidden = true;
+    $("proxima").hidden = false;
+    $("proxima").textContent = perguntaAtual === perguntas.length - 1 ? "Ver resultado →" : "Próxima pergunta →";
 }
 
 function avancarPergunta() {
-    if (fase !== "jogo" || !respondeu) return;
+    if (!respondeu || $("jogo").hidden || $("proxima").hidden) return;
     perguntaAtual++;
-    if (perguntaAtual < perguntas.length) mostrarPergunta();
-    else finalizarJogo();
+    if (perguntaAtual < perguntas.length) {
+        mostrarPergunta();
+    } else {
+        finalizarJogo();
+    }
 }
 
 function finalizarJogo() {
-    fase = "resultado";
-    elemento("jogo").hidden = true;
-    elemento("resultado").hidden = false;
-    elemento("pontuacao-final").textContent = `${nomeJogador}, você acertou ${pontuacao} de ${perguntas.length}!`;
+    $("jogo").hidden = true;
+    $("resultado").hidden = false;
+    $("pontuacao-final").textContent = `${nomeJogador}, você acertou ${pontuacao} de ${perguntas.length}!`;
+
     const partida = { nome: nomeJogador, pontos: pontuacao, total: perguntas.length };
     ranking.push(partida);
-    // Ordenação estável: empates mantêm a ordem de entrada.
     ranking.sort((a, b) => b.pontos / b.total - a.pontos / a.total);
-    try { sessionStorage.setItem(CHAVE_RANKING, JSON.stringify(ranking)); }
-    catch { armazenamentoDisponivel = false; }
-    elemento("ranking").replaceChildren();
-    ranking.forEach(item => {
-        const linha = document.createElement("li");
-        linha.textContent = `${item.nome} — ${item.pontos}/${item.total}${item === partida ? " · esta partida" : ""}`;
-        if (item === partida) linha.className = "partida-atual";
-        elemento("ranking").append(linha);
+    try {
+        sessionStorage.setItem(CHAVE_RANKING, JSON.stringify(ranking));
+    } catch {
+        armazenamentoDisponivel = false;
+    }
+
+    mostrarRanking(partida);
+}
+
+function mostrarRanking(ultimaPartida) {
+    $("ranking-board").hidden = ranking.length === 0;
+    $("ranking").replaceChildren();
+    ranking.forEach(partida => {
+        const item = document.createElement("li");
+        const percentual = Math.round(partida.pontos / partida.total * 100);
+        item.textContent = `${partida.nome} — ${partida.pontos}/${partida.total} (${percentual}%)`;
+        if (partida === ultimaPartida) item.classList.add("partida-atual");
+        $("ranking").append(item);
     });
-    elemento("aviso-ranking").textContent = armazenamentoDisponivel ?
-        "Ranking salvo nesta sessão. Fechar a aba encerra a sessão." :
-        "O navegador bloqueou o armazenamento. O ranking será mantido apenas enquanto esta página permanecer aberta, sem recarregar.";
-    elemento("fim-titulo").focus();
+    $("aviso-ranking").textContent = armazenamentoDisponivel
+        ? "Placar salvo nesta aba durante a sessão."
+        : "Não foi possível salvar. O placar ficará disponível enquanto esta página estiver aberta.";
 }
 
 function lerRanking() {
     try {
         const salvo = JSON.parse(sessionStorage.getItem(CHAVE_RANKING) || "[]");
-        ranking = Array.isArray(salvo) ? salvo.filter(item => item &&
-            typeof item.nome === "string" && item.nome.length <= 40 &&
-            Number.isInteger(item.pontos) && Number.isInteger(item.total) &&
-            item.total > 0 && item.pontos >= 0 && item.pontos <= item.total) : [];
+        if (Array.isArray(salvo)) ranking = salvo.filter(partida =>
+            partida && typeof partida.nome === "string" &&
+            Number.isInteger(partida.pontos) && Number.isInteger(partida.total) &&
+            partida.total > 0 && partida.pontos >= 0 && partida.pontos <= partida.total
+        );
+        ranking.sort((a, b) => b.pontos / b.total - a.pontos / a.total);
     } catch {
-        ranking = []; // JSON corrompido ou armazenamento indisponível não bloqueiam o jogo.
+        armazenamentoDisponivel = false;
     }
 }
 
 function reiniciarJogo() {
-    fase = "inicio";
-    perguntaAtual = 0;
-    pontuacao = 0;
-    respondeu = false;
-    elemento("resultado").hidden = true;
-    elemento("inicio").hidden = false;
-    elemento("nome").focus();
-    elemento("nome").select();
-    // O ranking permanece; não usamos location.reload().
+    $("resultado").hidden = true;
+    $("inicio").hidden = false;
+    $("nome").focus();
 }
-
